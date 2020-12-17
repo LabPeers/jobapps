@@ -17,7 +17,7 @@ class App extends Component {
         myDate: "",
         completed: false
       },
-      todoList: []
+      jobappsList: []
     };
   }
   componentDidMount() {
@@ -25,8 +25,8 @@ class App extends Component {
   }
   refreshList = () => {
     axios
-      .get("http://localhost:8000/api/todos/")
-      .then(res => this.setState({ todoList: res.data }))
+      .get("http://localhost:8000/api/jobapps/")
+      .then(res => this.setState({ jobappsList: res.data }))
       .catch(err => console.log(err));
   };
   displayCompleted = status => {
@@ -55,7 +55,7 @@ class App extends Component {
   };
   renderItems = () => {
     const { viewCompleted } = this.state;
-    const newItems = this.state.todoList.filter(
+    const newItems = this.state.jobappsList.filter(
       item => item.completed === viewCompleted
     );
     return newItems.map(item => (
@@ -64,8 +64,8 @@ class App extends Component {
         className="list-group-item d-flex justify-content-between align-items-center"
       >
         <span
-          className={`todo-title mr-2 ${
-            this.state.viewCompleted ? "completed-todo" : ""
+          className={`jobapps-title mr-2 ${
+            this.state.viewCompleted ? "completed-jobapps" : ""
           }`}
           title={item.description}
         >
@@ -96,17 +96,17 @@ class App extends Component {
     this.toggle();
     if (item.id) {
       axios
-        .put(`http://localhost:8000/api/todos/${item.id}/`, item)
+        .put(`http://localhost:8000/api/jobapps/${item.id}/`, item)
         .then(res => this.refreshList());
       return;
     }
     axios
-      .post("http://localhost:8000/api/todos/", item)
+      .post("http://localhost:8000/api/jobapps/", item)
       .then(res => this.refreshList());
   };
   handleDelete = item => {
     axios
-      .delete(`http://localhost:8000/api/todos/${item.id}`)
+      .delete(`http://localhost:8000/api/jobapps/${item.id}`)
       .then(res => this.refreshList());
   };
   createItem = () => {

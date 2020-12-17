@@ -2,9 +2,9 @@
 # todo/serializers.py
 
 from rest_framework import serializers
-from .models import Todo
+from .models import Jobapps
       
-class TodoSerializer(serializers.ModelSerializer):
+class JobappsSerializer(serializers.ModelSerializer):
   class Meta:
-    model = Todo
+    model = Jobapps
     fields = ('id', 'title', 'description', 'company', 'myLocation', 'myDate', 'completed')

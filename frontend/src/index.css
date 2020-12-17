@@ -11,10 +11,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #282c34;
 }
-.todo-title {
+.jobapps-title {
   cursor: pointer;
 }
-.completed-todo {
+.completed-jobapps {
   text-decoration: line-through;
 }
 .tab-list > span {

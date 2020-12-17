@@ -34,7 +34,7 @@ export default class CustomModal extends Component {
     const { toggle, onSave } = this.props;
     return (
       <Modal isOpen={true} toggle={toggle}>
-        <ModalHeader toggle={toggle}> Todo Item </ModalHeader>
+        <ModalHeader toggle={toggle}> Job Application </ModalHeader>
         <ModalBody>
           <Form>
             <FormGroup>
@@ -44,7 +44,7 @@ export default class CustomModal extends Component {
                 name="title"
                 value={this.state.activeItem.title}
                 onChange={this.handleChange}
-                placeholder="Enter Todo Title"
+                placeholder="Enter job title"
               />
             </FormGroup>
             <FormGroup>
@@ -54,7 +54,7 @@ export default class CustomModal extends Component {
                 name="description"
                 value={this.state.activeItem.description}
                 onChange={this.handleChange}
-                placeholder="Enter Todo description"
+                placeholder="Enter job description"
               />
             </FormGroup>
             <FormGroup>
